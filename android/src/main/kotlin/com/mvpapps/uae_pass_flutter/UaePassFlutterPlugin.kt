@@ -173,7 +173,7 @@ class UaePassFlutterPlugin: FlutterPlugin, MethodCallHandler, ActivityAware,Plug
             fos.write(decodedBytes)
             fos.flush()
         }
-        val documentSigningParams = loadDocumentSigningJson(call.argument<String>("signatureInfo"))
+        val documentSigningParams = loadDocumentSigningJson(call.argument<String>("signatureInfo")!!)
         documentSigningParams?.let {
             val requestModel = getDocumentRequestModel(file, it)
             signDocument(activity!!, requestModel, object : UAEPassDocumentSigningCallback {
